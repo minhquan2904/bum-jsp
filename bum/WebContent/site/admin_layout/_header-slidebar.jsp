@@ -13,18 +13,22 @@
 
 		<li><a href="#"><svg class="glyph stroked line-graph">
 					<use xlink:href="#stroked-line-graph"></use></svg> Biểu đồ</a></li>
-		<li><a href="#"><svg class="glyph stroked pencil">
+		<li><a href="add-submission.html"><svg
+					class="glyph stroked pencil">
 					<use xlink:href="#stroked-pencil"></use></svg> Bài dự thi</a></li>
-		<li><a href="#"><svg class="glyph stroked sound on">
+		<li><a href="admin-News.html"><svg
+					class="glyph stroked sound on">
 					<use xlink:href="#stroked-sound-on" /></svg> Tin tức</a></li>
 		<li><a href="#"><svg class="glyph stroked male user ">
 					<use xlink:href="#stroked-male-user" /></svg> Editor</a></li>
-		<li><a href="#"><svg class="glyph stroked camera ">
-					<use xlink:href="#stroked-camera" /></svg> Quảng cáo</a></li>
+		<li><a href="#"><svg class="glyph stroked table">
+					<use xlink:href="#stroked-table" /></svg> Danh sách đăng kí</a></li>
 		<li><a href="#"><svg class="glyph stroked notepad ">
 					<use xlink:href="#stroked-notepad" /></svg> Thể lệ &amp; Giới thiệu</a></li>
-		<li><a href="#"><svg class="glyph stroked mobile device">
-					<use xlink:href="#stroked-mobile-device" /></svg> Thay đổi background</a></li>
+		<li><a href="adminOption.html"><svg
+					class="glyph stroked mobile device">
+					<use xlink:href="#stroked-mobile-device" /></svg> Quảng cáo &amp; giao
+				diện </a></li>
 		<li role="presentation" class="divider"></li>
 		<li><a href="login.html"><svg class="glyph stroked male-user">
 					<use xlink:href="#stroked-male-user"></use></svg> ...</a></li>
