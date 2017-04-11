@@ -1,11 +1,28 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <%@ page pageEncoding="utf-8"%>
 <jsp:include page="layout/_header.jsp"></jsp:include>
+<link href="https://fonts.googleapis.com/css?family=Roboto"
+	rel="stylesheet">
+<style media="screen">
+.b-regist label {
+	font-family: 'Roboto', sans-serif;
+}
+
+.b-regist h3 {
+	font-family: 'Roboto', sans-serif;
+}
+
+input.form-control.input-lg {
+    font-size: medium;
+}
+</style>
 <div class="main-page col-xs-8 col-sm-8 container-fluid">
 
 	<div class="b-regist">
-		<form role="form">
+		<form role="form" action="regist.html" method="post">
 			<h2>
 				ĐĂNG KÝ DỰ THI <small style="font-size: 0.5em">Cuộc thi sáng
 					tác phim ngắn dành cho sinh viên không chuyên điện ảnh lần 1 - 2017</small>
@@ -15,15 +32,17 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<input type="text" name="group_name" id="group_name"
-							class="form-control input-lg" placeholder="Tên nhóm" tabindex="1">
+						<label for="group_name">Tên nhóm</label> <input type="text"
+							name="group_name"  id="group_name" class="form-control input-lg"
+							placeholder="Tên nhóm" tabindex="1" >
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<input type="text" name="date" id="date"
+						<label for="group_foundation">Ngày thành lập nhóm  |<small><i>  Định dạng tháng/ngày/năm</i></small></label> <input
+							type="date" name="foundation" id="foundation"
 							class="form-control input-lg" placeholder="Ngày thành lập"
-							tabindex="2">
+							tabindex="2" >
 					</div>
 				</div>
 			</div>
@@ -32,166 +51,344 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<input type="text" name="leader-name" id="leader-name"
+						<label for="leader_name">Họ tên người đại diện</label> <input
+							type="text" name="leader-name" id="leader-name" 
 							class="form-control input-lg" placeholder="Họ tên người đại diện"
 							tabindex="3">
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<input type="text" name="birthday" id="birthday"
+						<label for="leader_birthday">Ngày sinh</label> <input type="date"
+							name="leader-birthday" id="birthday"
 							class="form-control input-lg" placeholder="Ngày sinh"
 							tabindex="4">
 					</div>
 				</div>
 			</div>
 			<!-- /Leader info -->
-			<!-- PHONE -->
-			<div class="form-group">
-				<input type="number" name="phone-number" id="phone-number"
-					class="form-control input-lg" placeholder="Số điện thoại"
-					tabindex="4">
-			</div>
-			<!-- /PHONE -->
-			<!-- EMAIL -->
-			<div class="form-group">
-				<input type="email" name="email" id="email"
-					class="form-control input-lg" placeholder="Email Address"
-					tabindex="4">
-			</div>
-			<!-- /EMAIL -->
-			<!-- SCHOOL NAME -->
-			<div class="form-group">
-				<input type="text" name="school-name" id="school-name"
-					class="form-control input-lg" placeholder="Tên trường bạn đang học"
-					tabindex="4">
-			</div>
-			<!-- /SCHOOL NAME -->
-			<!-- MEMBER - 1 -->
 			<div class="row">
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<input type="text" name="member-name-1"
-							class="form-control input-lg" placeholder="Họ tên thành viên"
-							tabindex="3">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
-					<div class="form-group">
-						<input type="text" name="member-birthday-1"
-							class="form-control input-lg" placeholder="Ngày sinh"
-							tabindex="4">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
-					<div class="form-group">
-						<input type="number" name="meber-phone-1"
+						<label for="leader_phone">Số điện thoại người đại diện</label> <input
+							type="tel" name="leader-phone"" id="leader-phone"
 							class="form-control input-lg" placeholder="Số điện thoại"
 							tabindex="3">
 					</div>
 				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<label for="leader_name">Số CMND người đại diện</label> <input
+							type="number" name="leader-indentity"  id="leader-identity"
+							class="form-control input-lg" placeholder="Số CMND" tabindex="4">
+					</div>
+				</div>
+			</div>
+			<!-- /Leader info -->
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<label for="leader_name">Email</label> <input type="text"
+							name="leader-email" id="leader-email"
+							class="form-control input-lg" placeholder="Email" tabindex="3">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<label for="leader_name">Mã số sinh viên</label> <input
+							type="text" name="leader-idStudent"  id="leader-idstudent"
+							class="form-control input-lg" placeholder="Mã số sinh viên"
+							tabindex="4">
+					</div>
+				</div>
+			</div>
+			<!-- /Leader info -->
+			<!-- SCHOOL NAME -->
+			<div class="form-group">
+				<label for="leader_name">Tên trường bạn đang học</label> <input
+					type="text" name="school-name"  id="school-name"
+					class="form-control input-lg" placeholder="Tên trường bạn đang học"
+					tabindex="4">
+			</div>
+			<!-- /SCHOOL NAME -->
+			<div class="form-group">
+				<label for="rts-dish">Thành tích đạt được</label>
+				<textarea name="achivement" id="achivement"
+					style="height: auto; width: 100%;" class="form-control"
+					placeholder="Thành tích đạt được khi tham gia các cuộc thi làm phim"></textarea>
+				<p class="help-block">
+					<i>Không bắt buộc</i>
+				</p>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="form-group">
+						<h3>Danh sách thành viên trong nhóm</h3>
+						<p class="help-block">
+							<i>Điền đầy đủ các thông tin thành viên của nhóm bạn, tối đa
+								8 thành viên/nhóm(bao gồm nhóm trưởng). Để trống các input dư
+								nếu nhóm bạn có số lượng thành viên nhỏ hơn 8.</i>
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- MEMBER - 1 -->
+			<div class="row">
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+						<label for="leader_name">Họ và tên thành viên</label> <input
+							type="text" name="member-name-1" class="form-control input-lg"
+							placeholder="Họ tên thành viên" tabindex="3">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+						<label for="leader_name">Ngày sinh</label> <input type="date"
+							name="member-birthday-1"  class="form-control input-lg"
+							placeholder="Ngày sinh" tabindex="4">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+						<label for="leader_name">Số điện thoại</label> <input type="tel"
+							name="member-phone-1" class="form-control input-lg"
+							placeholder="Số điện thoại" tabindex="3">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+						<label for="leader_name">Email</label> <input type="text"
+							name="member-email-1" class="form-control input-lg"
+							placeholder="Email" tabindex="3">
+					</div>
+				</div>
 			</div>
 			<!-- /MEMBER -->
+
+
 			<!-- MEMBER - 2 -->
 			<div class="row">
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
+
 						<input type="text" name="member-name-2"
 							class="form-control input-lg" placeholder="Họ tên thành viên"
 							tabindex="3">
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
-						<input type="text" name="member-birthday-2"
+
+						<input type="date" name="member-birthday-2" 
 							class="form-control input-lg" placeholder="Ngày sinh"
 							tabindex="4">
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
-						<input type="number" name="meber-phone-2"
+
+						<input type="tel" name="member-phone-2" 
 							class="form-control input-lg" placeholder="Số điện thoại"
 							tabindex="3">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+
+						<input type="text" name="member-email-2" 
+							class="form-control input-lg" placeholder="Email" tabindex="3">
 					</div>
 				</div>
 			</div>
 			<!-- /MEMBER -->
 			<!-- MEMBER - 3 -->
 			<div class="row">
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
-						<input type="text" name="member-name-3"
+
+						<input type="text" name="member-name-3"  
 							class="form-control input-lg" placeholder="Họ tên thành viên"
 							tabindex="3">
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
-						<input type="text" name="member-birthday-3"
+
+						<input type="date" name="member-birthday-3" 
 							class="form-control input-lg" placeholder="Ngày sinh"
 							tabindex="4">
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
-						<input type="number" name="meber-phone-3"
+
+						<input type="number" name="member-phone-3" 
 							class="form-control input-lg" placeholder="Số điện thoại"
 							tabindex="3">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+
+						<input type="text" name="member-email-3" 
+							class="form-control input-lg" placeholder="Email" tabindex="3">
 					</div>
 				</div>
 			</div>
 			<!-- /MEMBER -->
 			<!-- MEMBER - 4 -->
 			<div class="row">
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
-						<input type="text" name="member-name-4"
+
+						<input type="text" name="member-name-4" 
 							class="form-control input-lg" placeholder="Họ tên thành viên"
 							tabindex="3">
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
-						<input type="text" name="member-birthday-4"
+
+						<input type="date" name="member-birthday-4" 
 							class="form-control input-lg" placeholder="Ngày sinh"
 							tabindex="4">
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
-						<input type="number" name="meber-phone-4"
+
+						<input type="number" name="member-phone-4" 
 							class="form-control input-lg" placeholder="Số điện thoại"
 							tabindex="3">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+
+						<input type="text" name="member-email-4" 
+							class="form-control input-lg" placeholder="Email" tabindex="3">
 					</div>
 				</div>
 			</div>
 			<!-- /MEMBER -->
 			<!-- MEMBER - 5 -->
 			<div class="row">
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
-						<input type="text" name="member-name-5"
+
+						<input type="text" name="member-name-5" 
 							class="form-control input-lg" placeholder="Họ tên thành viên"
 							tabindex="3">
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
-						<input type="text" name="member-birthday-5"
+
+						<input type="date" name="member-birthday-5"
 							class="form-control input-lg" placeholder="Ngày sinh"
 							tabindex="4">
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
-						<input type="number" name="meber-phone-5"
+
+						<input type="number" name="member-phone-5"  
 							class="form-control input-lg" placeholder="Số điện thoại"
 							tabindex="3">
 					</div>
 				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+
+						<input type="text" name="member-email-5"  
+							class="form-control input-lg" placeholder="Email" tabindex="3">
+					</div>
+				</div>
 			</div>
 			<!-- /MEMBER -->
+			<!-- MEMBER - 6 -->
+			<div class="row">
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+
+						<input type="text" name="member-name-6" 
+							class="form-control input-lg" placeholder="Họ tên thành viên"
+							tabindex="3">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+
+						<input type="date" name="member-birthday-6" 
+							class="form-control input-lg" placeholder="Ngày sinh"
+							tabindex="4">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+
+						<input type="number" name="member-phone-6" 
+							class="form-control input-lg" placeholder="Số điện thoại"
+							tabindex="3">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+
+						<input type="text" name="member-email-6" 
+							class="form-control input-lg" placeholder="Email" tabindex="3">
+					</div>
+				</div>
+			</div>
+			<!-- /MEMBER -->
+			<!-- MEMBER - 7 -->
+			<div class="row">
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+
+						<input type="text" name="member-name-7" 
+							class="form-control input-lg" placeholder="Họ tên thành viên"
+							tabindex="3">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+
+						<input type="date" name="member-birthday-7" 
+							class="form-control input-lg" placeholder="Ngày sinh"
+							tabindex="4">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+
+						<input type="number" name="member-phone-7" 
+							class="form-control input-lg" placeholder="Số điện thoại"
+							tabindex="3">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="form-group">
+
+						<input type="text" name="member-email-7" 
+							class="form-control input-lg" placeholder="Email" tabindex="3">
+					</div>
+				</div>
+			</div>
+			<!-- /MEMBER -->
+			<!-- Desciption -->
+
+			<div class="form-group">
+				<label for="rts-dish">Mô tả về nhóm của bạn</label>
+				<textarea name="description" id="rtsessay" 
+					style="height: auto; width: 100%;" class="form-control"
+					placeholder="Mô tả về nhóm của bạn"></textarea>
+				<p class="help-block">
+					<i>Bắt buộc</i>
+				</p>
+			</div>
+
+
 			<div class="row">
 				<div class="col-xs-4 col-sm-3 col-md-3">
 					<span class="button-checkbox">

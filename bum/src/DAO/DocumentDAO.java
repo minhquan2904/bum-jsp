@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import Model.Document;
 import Connect.DBConnect;
 
-@SuppressWarnings("serial")
+
 public class DocumentDAO implements Serializable {
 
 	/**
