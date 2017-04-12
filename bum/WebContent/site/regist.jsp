@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <%@ page pageEncoding="utf-8"%>
 <jsp:include page="layout/_header.jsp"></jsp:include>
@@ -16,13 +16,44 @@
 }
 
 input.form-control.input-lg {
-    font-size: medium;
+	font-size: medium;
 }
 </style>
 <div class="main-page col-xs-8 col-sm-8 container-fluid">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
 
+			$('#formRegist').validate({
+				rules : {
+					group_name : "required",
+					email : {
+						required : true,
+						email : true
+					},
+					password : {
+						required : true,
+						minlength : 6
+					}
+				},
+				messages : {
+					group_name : "Điền ít nhất 2 kí tự",
+					password : {
+						required : "Không để trống !",
+						minlength : "Ít nhất 6 ký tự!"
+					},
+					email : {
+						required : "Không để trống !"
+					}
+				}
+			});
+		});
+	</script>
 	<div class="b-regist">
-		<form role="form" action="regist.html" method="post">
+		<form role="form" action="regist.html" method="post" id="formRegist">
 			<h2>
 				ĐĂNG KÝ DỰ THI <small style="font-size: 0.5em">Cuộc thi sáng
 					tác phim ngắn dành cho sinh viên không chuyên điện ảnh lần 1 - 2017</small>
@@ -32,17 +63,16 @@ input.form-control.input-lg {
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<label for="group_name">Tên nhóm</label> <input type="text"
-							name="group_name"  id="group_name" class="form-control input-lg"
-							placeholder="Tên nhóm" tabindex="1" >
+						<label for="group_name">Tên nhóm</label> <input type="text" name="group_name" id="group_name"
+                            class="form-control input-lg" minlength=2 placeholder="Tên nhóm" tabindex="1">
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<label for="group_foundation">Ngày thành lập nhóm  |<small><i>  Định dạng tháng/ngày/năm</i></small></label> <input
-							type="date" name="foundation" id="foundation"
-							class="form-control input-lg" placeholder="Ngày thành lập"
-							tabindex="2" >
+						<label for="group_foundation">Ngày thành lập nhóm |<small><i>
+									Định dạng tháng/ngày/năm</i></small></label> <input type="date" name="foundation"
+							id="foundation" class="form-control input-lg"
+							placeholder="Ngày thành lập" tabindex="2">
 					</div>
 				</div>
 			</div>
@@ -52,7 +82,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
 						<label for="leader_name">Họ tên người đại diện</label> <input
-							type="text" name="leader-name" id="leader-name" 
+							type="text" name="leader-name" id="leader-name"
 							class="form-control input-lg" placeholder="Họ tên người đại diện"
 							tabindex="3">
 					</div>
@@ -71,7 +101,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
 						<label for="leader_phone">Số điện thoại người đại diện</label> <input
-							type="tel" name="leader-phone"" id="leader-phone"
+							type="tel" name="leader-phone" " id="leader-phone"
 							class="form-control input-lg" placeholder="Số điện thoại"
 							tabindex="3">
 					</div>
@@ -79,7 +109,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
 						<label for="leader_name">Số CMND người đại diện</label> <input
-							type="number" name="leader-indentity"  id="leader-identity"
+							type="number" name="leader-indentity" id="leader-identity"
 							class="form-control input-lg" placeholder="Số CMND" tabindex="4">
 					</div>
 				</div>
@@ -96,7 +126,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
 						<label for="leader_name">Mã số sinh viên</label> <input
-							type="text" name="leader-idStudent"  id="leader-idstudent"
+							type="text" name="leader-idStudent" id="leader-idstudent"
 							class="form-control input-lg" placeholder="Mã số sinh viên"
 							tabindex="4">
 					</div>
@@ -106,7 +136,7 @@ input.form-control.input-lg {
 			<!-- SCHOOL NAME -->
 			<div class="form-group">
 				<label for="leader_name">Tên trường bạn đang học</label> <input
-					type="text" name="school-name"  id="school-name"
+					type="text" name="school-name" id="school-name"
 					class="form-control input-lg" placeholder="Tên trường bạn đang học"
 					tabindex="4">
 			</div>
@@ -144,7 +174,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 						<label for="leader_name">Ngày sinh</label> <input type="date"
-							name="member-birthday-1"  class="form-control input-lg"
+							name="member-birthday-1" class="form-control input-lg"
 							placeholder="Ngày sinh" tabindex="4">
 					</div>
 				</div>
@@ -179,7 +209,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="date" name="member-birthday-2" 
+						<input type="date" name="member-birthday-2"
 							class="form-control input-lg" placeholder="Ngày sinh"
 							tabindex="4">
 					</div>
@@ -187,7 +217,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="tel" name="member-phone-2" 
+						<input type="tel" name="member-phone-2"
 							class="form-control input-lg" placeholder="Số điện thoại"
 							tabindex="3">
 					</div>
@@ -195,7 +225,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="text" name="member-email-2" 
+						<input type="text" name="member-email-2"
 							class="form-control input-lg" placeholder="Email" tabindex="3">
 					</div>
 				</div>
@@ -206,7 +236,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="text" name="member-name-3"  
+						<input type="text" name="member-name-3"
 							class="form-control input-lg" placeholder="Họ tên thành viên"
 							tabindex="3">
 					</div>
@@ -214,7 +244,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="date" name="member-birthday-3" 
+						<input type="date" name="member-birthday-3"
 							class="form-control input-lg" placeholder="Ngày sinh"
 							tabindex="4">
 					</div>
@@ -222,7 +252,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="number" name="member-phone-3" 
+						<input type="number" name="member-phone-3"
 							class="form-control input-lg" placeholder="Số điện thoại"
 							tabindex="3">
 					</div>
@@ -230,7 +260,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="text" name="member-email-3" 
+						<input type="text" name="member-email-3"
 							class="form-control input-lg" placeholder="Email" tabindex="3">
 					</div>
 				</div>
@@ -241,7 +271,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="text" name="member-name-4" 
+						<input type="text" name="member-name-4"
 							class="form-control input-lg" placeholder="Họ tên thành viên"
 							tabindex="3">
 					</div>
@@ -249,7 +279,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="date" name="member-birthday-4" 
+						<input type="date" name="member-birthday-4"
 							class="form-control input-lg" placeholder="Ngày sinh"
 							tabindex="4">
 					</div>
@@ -257,7 +287,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="number" name="member-phone-4" 
+						<input type="number" name="member-phone-4"
 							class="form-control input-lg" placeholder="Số điện thoại"
 							tabindex="3">
 					</div>
@@ -265,7 +295,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="text" name="member-email-4" 
+						<input type="text" name="member-email-4"
 							class="form-control input-lg" placeholder="Email" tabindex="3">
 					</div>
 				</div>
@@ -276,7 +306,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="text" name="member-name-5" 
+						<input type="text" name="member-name-5"
 							class="form-control input-lg" placeholder="Họ tên thành viên"
 							tabindex="3">
 					</div>
@@ -292,7 +322,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="number" name="member-phone-5"  
+						<input type="number" name="member-phone-5"
 							class="form-control input-lg" placeholder="Số điện thoại"
 							tabindex="3">
 					</div>
@@ -300,7 +330,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="text" name="member-email-5"  
+						<input type="text" name="member-email-5"
 							class="form-control input-lg" placeholder="Email" tabindex="3">
 					</div>
 				</div>
@@ -311,7 +341,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="text" name="member-name-6" 
+						<input type="text" name="member-name-6"
 							class="form-control input-lg" placeholder="Họ tên thành viên"
 							tabindex="3">
 					</div>
@@ -319,7 +349,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="date" name="member-birthday-6" 
+						<input type="date" name="member-birthday-6"
 							class="form-control input-lg" placeholder="Ngày sinh"
 							tabindex="4">
 					</div>
@@ -327,7 +357,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="number" name="member-phone-6" 
+						<input type="number" name="member-phone-6"
 							class="form-control input-lg" placeholder="Số điện thoại"
 							tabindex="3">
 					</div>
@@ -335,7 +365,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="text" name="member-email-6" 
+						<input type="text" name="member-email-6"
 							class="form-control input-lg" placeholder="Email" tabindex="3">
 					</div>
 				</div>
@@ -346,7 +376,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="text" name="member-name-7" 
+						<input type="text" name="member-name-7"
 							class="form-control input-lg" placeholder="Họ tên thành viên"
 							tabindex="3">
 					</div>
@@ -354,7 +384,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="date" name="member-birthday-7" 
+						<input type="date" name="member-birthday-7"
 							class="form-control input-lg" placeholder="Ngày sinh"
 							tabindex="4">
 					</div>
@@ -362,7 +392,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="number" name="member-phone-7" 
+						<input type="number" name="member-phone-7"
 							class="form-control input-lg" placeholder="Số điện thoại"
 							tabindex="3">
 					</div>
@@ -370,7 +400,7 @@ input.form-control.input-lg {
 				<div class="col-xs-12 col-sm-3 col-md-3">
 					<div class="form-group">
 
-						<input type="text" name="member-email-7" 
+						<input type="text" name="member-email-7"
 							class="form-control input-lg" placeholder="Email" tabindex="3">
 					</div>
 				</div>
@@ -380,7 +410,7 @@ input.form-control.input-lg {
 
 			<div class="form-group">
 				<label for="rts-dish">Mô tả về nhóm của bạn</label>
-				<textarea name="description" id="rtsessay" 
+				<textarea name="description" id="rtsessay"
 					style="height: auto; width: 100%;" class="form-control"
 					placeholder="Mô tả về nhóm của bạn"></textarea>
 				<p class="help-block">

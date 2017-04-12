@@ -11,6 +11,7 @@ public class Member implements Serializable {
 	private String phone;
 	private String email;
 	private Integer group_id;
+	private String group_name;
 	public Member() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -18,7 +19,10 @@ public class Member implements Serializable {
 	
 	
 
-	public Member(Integer id, String name, Date birthday, String phone, String email, Integer group_id) {
+	
+
+	public Member(Integer id, String name, Date birthday, String phone, String email, Integer group_id,
+			String group_name) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -26,7 +30,26 @@ public class Member implements Serializable {
 		this.phone = phone;
 		this.email = email;
 		this.group_id = group_id;
+		this.group_name = group_name;
 	}
+
+
+
+
+
+	public String getGroup_name() {
+		return group_name;
+	}
+
+
+
+
+
+	public void setGroup_name(String group_name) {
+		this.group_name = group_name;
+	}
+
+
 
 
 
