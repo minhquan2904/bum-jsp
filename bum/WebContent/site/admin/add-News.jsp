@@ -79,12 +79,15 @@
 			<h1>
 				<center>Đăng bài viết</center>
 			</h1>
-			<form action="admin-option_submit" method="get"
+			<form action="admin-option_submit" method="post"
 				accept-charset="utf-8">
 				<div class="form-group">
 					<label class="col-md-2">Tiêu đề</label> <input type="text"
 						class="form-control" id="email">
 				</div>
+				<label class="col-md-2">Chọn loại bài đăng</label>
+				<label class="radio-inline"><input type="radio" name="optradio" value="tt">Tin tức</label>
+				<label class="radio-inline"><input type="radio" name="optradio" value="bv">Bài viết</label>
 				<div id="editor">
 					<div id='edit' style="margin-top: 30px;">
 						<h1>Viết bài ở đây + HTML</h1>

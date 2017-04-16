@@ -1,11 +1,16 @@
 package Controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import DAO.PostDAO;
+import Model.Document;
 
 /**
  * Servlet implementation class adminNewsController
@@ -26,6 +31,21 @@ public class adminNewsController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+				PostDAO postdao =new PostDAO();
+				Document d=new Document();
+				// ArrayList<Document> listPost=new ArrayList<>();
+				try {
+					
+					request.setAttribute("listpost", postdao.getListPost() );
+					int idpost = (int) request.getAttribute("idpost");
+					request.setAttribute("post", postdao.getPost(idpost));
+					
+				} catch (SQLException e) {
+				
+					e.printStackTrace();
+				}
+				
 		request.getRequestDispatcher("/site/admin/admin-News.jsp").forward(request, response);
 	}
 
