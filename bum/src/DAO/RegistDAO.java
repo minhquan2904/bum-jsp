@@ -54,6 +54,7 @@ public class RegistDAO {
 			ps.setString(3, member.getPhone());
 			ps.setString(4, member.getEmail());
 
+			
 			ps.executeUpdate();
 		}
 		ps.close();
