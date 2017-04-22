@@ -95,4 +95,19 @@ public class RegistDAO {
 
 		return list;
 	}
+	
+	public ArrayList<Member> getListMember(String group_name)
+	{
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("can not load jdbc Driver !");
+		}
+		
+		Connection conn = DBConnect.getConnection();
+		
+		return null;
+		
+	}
 }

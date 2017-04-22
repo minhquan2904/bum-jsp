@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.mysql.jdbc.Statement;
+
 import Model.Document;
 import Connect.DBConnect;
 
@@ -89,5 +91,69 @@ public class PostDAO implements Serializable {
 		return list;
 
 	}
+	public boolean deletePost(int idpost)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("can not load jdbc Driver !");
+		}
+		Connection cons = DBConnect.getConnection();
+        String sql = "delete from document where id="+idpost;
+        try {
+            PreparedStatement ps = (PreparedStatement) cons.prepareStatement(sql);       
+            cons.close();
+            return ps.executeUpdate()==1;      
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return false;
+	}
+	public boolean updatePost(Document doc)
+	{
+		Connection cons = DBConnect.getConnection();
+        String sql = "update document set title=?, content=?, date=?, view=?, url=?, status=?, category=? where id=?";       
+        try {
+            PreparedStatement ps = (PreparedStatement) cons.prepareStatement(sql);                      
+            ps.setNString(1,doc.getTitle());
+            ps.setNString(2,doc.getContent());
+            ps.setDate(3,doc.getDate());
+            ps.setInt(4,doc.getView());
+            ps.setNString(5,doc.getUrl());
+            ps.setInt(6,doc.getStatus());
+            ps.setInt(7,doc.getCategory());
+            ps.setInt(8,doc.getId());
+            cons.close();
+            return ps.executeUpdate()==1;
+          
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+	}
+	
+	public boolean insertPost(Document doc) throws SQLException
+	{
+		Connection cons = DBConnect.getConnection();
+        String sql = "insert into document (title,content,date,view,url,status,category) values(?,?,?,?,?,?,?) ";       
+        try {
+            PreparedStatement ps = (PreparedStatement)cons.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);            
+            ps.setNString(1,doc.getTitle());
+            ps.setNString(2,doc.getContent());
+            ps.setDate(3,doc.getDate());
+            ps.setInt(4,doc.getView());
+            ps.setNString(5,doc.getUrl());
+            ps.setInt(6,doc.getStatus());
+            ps.setInt(7,doc.getCategory());
+            return ps.executeUpdate()==1;
+          
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        cons.close();
+        return false;
+	}
+	
 
 }

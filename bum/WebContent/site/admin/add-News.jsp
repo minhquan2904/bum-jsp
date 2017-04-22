@@ -79,22 +79,17 @@
 			<h1>
 				<center>Đăng bài viết</center>
 			</h1>
-			<form action="admin-option_submit" method="post"
+			<form action="addNewsController" method="post"
 				accept-charset="utf-8">
 				<div class="form-group">
 					<label class="col-md-2">Tiêu đề</label> <input type="text"
-						class="form-control" id="email">
+						class="form-control" name="title" id="email">
 				</div>
 				<label class="col-md-2">Chọn loại bài đăng</label>
-				<label class="radio-inline"><input type="radio" name="optradio" value="tt">Tin tức</label>
-				<label class="radio-inline"><input type="radio" name="optradio" value="bv">Bài viết</label>
-				<div id="editor">
-					<div id='edit' style="margin-top: 30px;">
-						<h1>Viết bài ở đây + HTML</h1>
-						<p>You can use at any time in your code the following snippet
-							to get the content inside the Froala WYSIWYG HTML Editor</p>
-					</div>
-				</div>
+				<label class="radio-inline"><input type="radio" name="optradio" value="1">Tin tức</label>
+				<label class="radio-inline"><input type="radio" name="optradio" checked="checked" value="2">Bài viết</label>
+				<input id="cate" type="hidden" name="category" value="2"/>
+				<textarea name="content" id="myEditor"></textarea>
 				<button style="margin: 10px" type="submit" class="btn btn-success">Lưu
 					thay đổi</button>
 			</form>
@@ -135,8 +130,14 @@
 <script type="text/javascript" src="js/plugins/video.min.js"></script>
 <script type="text/javascript" src="js/languages/vi.js"></script>
 <script>
+	$(document).ready(function(){
+		 $('input[name=optradio]').on("click",function(){
+			$("#cate").val($(this).val());
+		 });
+	
+	});
 	$(function() {
-		$('#edit').froalaEditor({
+		$('#myEditor').froalaEditor({
 			language : 'vi',
 			imageInsertButtons : [ 'imageByURL' ],
 			videoInsertButtons : [ 'videoByURL', 'videoEmbed' ],
