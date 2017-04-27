@@ -45,7 +45,7 @@ public class RegistDAO {
 		String group_name = regist.getName();
 
 		String sql2 = "INSERT INTO `member`(`name`, `birthday`, `phone`, `email`, `group_id`,`group_name`)"
-				+ "VALUES (?,?,?,?," + group_id + "," + group_name + ")";
+				+ "VALUES (?,?,?,?,?,?)";
 		for (Member member : list) {
 			ps = connection.prepareCall(sql2);
 
@@ -53,7 +53,8 @@ public class RegistDAO {
 			ps.setDate(2, member.getBirthday());
 			ps.setString(3, member.getPhone());
 			ps.setString(4, member.getEmail());
-
+			ps.setInt(5,group_id);
+			ps.setString(6, group_name);
 			
 			ps.executeUpdate();
 		}
@@ -92,11 +93,13 @@ public class RegistDAO {
 				
 				list.add(regist);
 		}
-
+		conn.close();
+		ps.close();
+		rs.close();
 		return list;
 	}
 	
-	public ArrayList<Member> getListMember(String group_name)
+	public ArrayList<Member> getListMember(Integer id) throws SQLException
 	{
 		
 		try {
@@ -106,8 +109,62 @@ public class RegistDAO {
 		}
 		
 		Connection conn = DBConnect.getConnection();
+		String sql = "SELECT * FROM `member` WHERE member.group_id = "+id+"";
 		
-		return null;
+		PreparedStatement ps =conn.prepareCall(sql);
+		ResultSet rs = ps.executeQuery();
+		ArrayList<Member> list = new ArrayList<>();
+		while(rs.next())
+		{
+			Member member = new Member();
+			member.setId(rs.getInt("id"));
+			member.setName(rs.getNString("name"));
+			member.setBirthday(rs.getDate("birthday"));
+			member.setPhone(rs.getString("phone"));
+			member.setEmail(rs.getString("email"));
+			member.setGroup_id(rs.getInt("group_id"));
+			member.setGroup_name(rs.getString("group_name"));
+			
+			list.add(member);
+		}
+		conn.close();
+		ps.close();
+		rs.close();
+		return list;
+		
+	}
+	public ArrayList<Member> getListMemberByGroupName(String name) throws SQLException
+	{
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("can not load jdbc Driver !");
+		}
+		
+		Connection conn = DBConnect.getConnection();
+		String sql = "SELECT * FROM `member` WHERE member.group_name = "+name+"";
+		
+		PreparedStatement ps =conn.prepareCall(sql);
+		ResultSet rs = ps.executeQuery();
+		ArrayList<Member> list = new ArrayList<>();
+		while(rs.next())
+		{
+			Member member = new Member();
+			member.setId(rs.getInt("id"));
+			member.setName(rs.getNString("name"));
+			member.setBirthday(rs.getDate("birthday"));
+			member.setPhone(rs.getString("phone"));
+			member.setEmail(rs.getString("email"));
+			member.setGroup_id(rs.getInt("group_id"));
+			member.setGroup_name(rs.getString("group_name"));
+			
+			list.add(member);
+		}
+		conn.close();
+		ps.close();
+		rs.close();
+		return list;
 		
 	}
 }

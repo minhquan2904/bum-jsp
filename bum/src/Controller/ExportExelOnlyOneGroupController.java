@@ -1,7 +1,6 @@
 package Controller;
 
 import java.io.IOException;
-import java.rmi.server.ExportException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -14,18 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.RegistDAO;
 import Model.Member;
 import Tools.ExporExel;
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 /**
- * Servlet implementation class adminViewMemberController
+ * Servlet implementation class ExportExelOnlyOneGroupController
  */
-@WebServlet("/adminViewMember.html")
-public class adminViewMemberController extends HttpServlet {
+@WebServlet("/ExportExel.html")
+public class ExportExelOnlyOneGroupController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public adminViewMemberController() {
+    public ExportExelOnlyOneGroupController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,26 +35,23 @@ public class adminViewMemberController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id")) ;
+		String name = request.getParameter("group_name");
 		
 		RegistDAO dao = new RegistDAO();
 		ArrayList<Member> list = new ArrayList<>();
 		try {
-			list = dao.getListMember(id);
+			list = dao.getListMemberByGroupName(name);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(!list.isEmpty())
-		{
-			request.setAttribute("list", list);
-			String group_name = list.get(0).getGroup_name();
-			request.setAttribute("group_name", group_name);
-		}
-		//String location = "";
-		//ExporExel.ExportMember(list, location);
 		
-		request.getRequestDispatcher("/site/admin/adViewMember.jsp").forward(request, response);
+		
+		String location = "";
+		String path = ExporExel.ExportMember(list, location);
+		request.setAttribute("path", path);
+		
+		request.getRequestDispatcher("/site/admin/admin-export-member.jsp").forward(request, response);
 	}
 
 	/**

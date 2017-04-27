@@ -88,7 +88,7 @@
 										<td>${fn:escapeXml(l.school)}</td>
 										<td>${fn:escapeXml(l.achivement)}</td>
 										<td>${fn:escapeXml(l.description)}</td>
-										<td><a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+										<td><a class="btn btn-primary" href="adminViewMember.html?id=${l.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

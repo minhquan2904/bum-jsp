@@ -46,7 +46,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Danh sách thành viên đội </div>
+					<div class="panel-heading">Danh sách thành viên đội ${fn:escapeXml(group_name)}  </div>
 					<div class="panel-body">
 						<table data-toggle="table" data-url="tables/data1.json"
 							data-show-refresh="true" data-show-toggle="true"
@@ -56,19 +56,12 @@
 							<thead>
 								<tr>
 									<th data-field="state" data-checkbox="true">Item ID</th>
-									<th data-field="id" data-visible="false">Group ID</th>
-									<th data-field="name" data-sortable="true">Tên nhóm</th>
-									<th data-field="foundation">Ngày thành lập</th>
-									<th data-field="leader_name">Họ&tên nhóm trưởng</th>
-									<th data-field="ld_birthday" data-visible="false">Ngày sinh</th>
-									<th data-field="ld_phone" data-visible="false">Số điện thoại</th>
-									<th data-field="ld_identity" data-visible="false">Số CMND</th>
-									<th data-field="ld_idStudent" data-visible="false">MSSV</th>
+									<th data-field="id" data-visible="false">Member ID</th>									
+									<th data-field="name">Họ&tên</th>
+									<th data-field="birthday">Ngày sinh</th>						
+									<th data-field="ld_phone">Số điện thoại</th>							
 									<th data-field="email">Email</th>
-									<th data-fiel="school">Tên trường</th>
-									<th data-field="achivement">Thành tích</th>
-									<th data-field="description">Mô tả nhóm</th>
-									<th data-align="center">Xem thành viên</th>
+									<th data-field="group_name" >Tên nhóm</th>
 
 								</tr>
 							</thead>
@@ -77,22 +70,17 @@
 									<tr class="clk">
 										<td>${l.id}</td>
 										<td>${l.id }</td>
-										<td>${fn:escapeXml(l.name)}</td>
-										<td>${fn:escapeXml(l.foundation)}</td>
-										<td>${fn:escapeXml(l.leader_name)}</td>
-										<td>${fn:escapeXml(l.ld_birthday)}</td>										
-										<td>${fn:escapeXml(l.ld_phone)}</td>
-										<td>${fn:escapeXml(l.ld_identity)}</td>
-										<td>${fn:escapeXml(l.ld_idStudent)}</td>
+										<td>${fn:escapeXml(l.name)}</td>			
+										<td>${fn:escapeXml(l.birthday)}</td>										
+										<td>${fn:escapeXml(l.phone)}</td>	
 										<td>${fn:escapeXml(l.email)}</td>
-										<td>${fn:escapeXml(l.school)}</td>
-										<td>${fn:escapeXml(l.achivement)}</td>
-										<td>${fn:escapeXml(l.description)}</td>
-										<td><a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+										<td>${fn:escapeXml(l.group_name)}</td>										
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
+						
+						<a href="ExportExel.html?group_name=${fn:escapeXml(group_name)}" class="btn btn-success">Lấy file Exel</a>
 					</div>
 				</div>
 			</div>
