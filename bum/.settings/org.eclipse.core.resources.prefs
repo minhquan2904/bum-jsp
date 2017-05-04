@@ -2,3 +2,5 @@ eclipse.preferences.version=1
 encoding//WebContent/site/admin/add-submission.jsp=UTF-8
 encoding//WebContent/site/admin/admin-submission.jsp=UTF-8
 encoding//WebContent/site/layout/_footer.jsp=UTF-8
+encoding//src/Controller/Test.java=UTF-8
+encoding//src/Tools/UnsignURL.java=UTF-8

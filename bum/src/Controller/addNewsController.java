@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.PostDAO;
 import Model.Document;
+import Tools.UnsignURL;
 
 /**
  * Servlet implementation class addNewsController
@@ -51,12 +52,15 @@ public class addNewsController extends HttpServlet {
 			doc.setTitle(title);
 			doc.setContent(content);
 			doc.setCategory(category);
-			doc.setUrl("");
+			String url = UnsignURL.ToUnsignString(title);
+			doc.setUrl(url);
 			doc.setView(0);
 			doc.setStatus(0);
 			doc.setDate(new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
 			PostDAO p=new PostDAO();
 			p.insertPost(doc);
+			
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

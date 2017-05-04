@@ -30,6 +30,14 @@ $(document).ready(function() {
 });
 
 $(function() {
+	// thay đổi ảnh trong trang index
+	
+	$('#sidebarleft').css('background-image', 'url(' + $('#2').val() + ')');
+	$('#sidebarright').css('background-image', 'url(' + $('#3').val() + ')');
+	$('.b-header').css('background-image', 'url(' + $('#1').val() + ')');
+	$('.footer-distributed').css('background-image', 'url(' + $('#5').val() + ')');
+	$('#footerright').css('background-image', 'url(' + $('#4').val() + ')');
+	
     $('.button-checkbox').each(function() {
 
         // Settings

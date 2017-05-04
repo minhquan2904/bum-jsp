@@ -3,7 +3,7 @@
 
 <jsp:include page="../admin_layout/_header.jsp"></jsp:include>
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-		<h3>YOUR FILE LOCATION: ${path}</h3>
+		<h3>YOUR FILE LOCATION:</h3> <input value="${path}" size="50" readonly="readonly" />
 	</div>
 
 

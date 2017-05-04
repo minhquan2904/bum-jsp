@@ -167,4 +167,39 @@ public class RegistDAO {
 		return list;
 		
 	}
+	
+	public ArrayList<Member> getAllMember() throws SQLException
+	{
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("can not load jdbc Driver !");
+		}
+		
+		Connection conn = DBConnect.getConnection();
+		String sql = "SELECT * FROM `member`";
+		
+		PreparedStatement ps =conn.prepareCall(sql);
+		ResultSet rs = ps.executeQuery();
+		ArrayList<Member> list = new ArrayList<>();
+		while(rs.next())
+		{
+			Member member = new Member();
+			member.setId(rs.getInt("id"));
+			member.setName(rs.getNString("name"));
+			member.setBirthday(rs.getDate("birthday"));
+			member.setPhone(rs.getString("phone"));
+			member.setEmail(rs.getString("email"));
+			member.setGroup_id(rs.getInt("group_id"));
+			member.setGroup_name(rs.getString("group_name"));
+			
+			list.add(member);
+		}
+		conn.close();
+		ps.close();
+		rs.close();
+		return list;
+		
+	}
 }

@@ -93,6 +93,8 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						
+						<a class="btn btn-success" href="ExportExelAllMember.html">Lấy danh sách tất cả thành viên</a>
 					</div>
 				</div>
 			</div>

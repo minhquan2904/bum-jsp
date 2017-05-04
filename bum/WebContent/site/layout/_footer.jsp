@@ -4,7 +4,7 @@
 	data-wow-duration="2s" id="sidebarright"></div>
 </div>
 <footer class="container-fluid">
-	<div class="footerfan col-lg-12 col-sm-12 col-xs-12 wow rollIn"
+	<div class="footerfan col-lg-12 col-sm-12 col-xs-12 wow bounceInRight"
 		data-wow-duration="2s">
 		<div id="footerleft" class="col-sm-6">
 			<iframe
@@ -14,7 +14,7 @@
 		</div>
 		<div id="footerright" class="col-sm-6">Logo</div>
 	</div>
-	<div class="footer-text col-lg-12 col-sm-12 col-xs-12 wow rollIn"
+	<div class="footer-text col-lg-12 col-sm-12 col-xs-12 wow bounceInLeft"
 		data-wow-duration="2s">
 
 		<div class="footer-left text-left col-lg-6 col-xs-6 col-sm-6">
