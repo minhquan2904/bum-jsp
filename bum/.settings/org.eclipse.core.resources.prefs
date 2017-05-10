@@ -1,6 +1,11 @@
 eclipse.preferences.version=1
+encoding//WebContent/css/admin.css=UTF-8
 encoding//WebContent/site/admin/add-submission.jsp=UTF-8
 encoding//WebContent/site/admin/admin-submission.jsp=UTF-8
 encoding//WebContent/site/layout/_footer.jsp=UTF-8
+encoding//src/Connect/MyUntils.java=UTF-8
 encoding//src/Controller/Test.java=UTF-8
+encoding//src/Filter/JDBCFilter.java=UTF-8
+encoding//src/Filter/LogFilter.java=UTF-8
+encoding//src/Tools/ExporExel.java=UTF-8
 encoding//src/Tools/UnsignURL.java=UTF-8

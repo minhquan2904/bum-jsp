@@ -126,29 +126,29 @@ public class ExporExel {
              cell = row.createCell(6, CellType.STRING);
              cell.setCellValue(member.getEmail());
            
-             if(location.equals(""))
-             {
-            	 String user = System.getProperty("user.home");
-            	 File file = new File( user+"/Desktop/"+name+".xls");
-            	 file.getParentFile().mkdirs();
-            	 
-                 FileOutputStream outFile = new FileOutputStream(file);
-                 workbook.write(outFile);
-                 System.out.println("Created file: " + file.getAbsolutePath());
-                 locationOut = file.getAbsolutePath();
-             }
-             else
-             {
-            	 File file = new File(location);
-            	 file.getParentFile().mkdirs();
-            	 
-                 FileOutputStream outFile = new FileOutputStream(file);
-                 workbook.write(outFile);
-                 System.out.println("Created file: " + file.getAbsolutePath());
-                 locationOut = file.getAbsolutePath();
-             }
              
-             
+        }
+
+        if(location.equals(""))
+        {
+       	 String user = System.getProperty("user.home");
+       	 File file = new File( user+"/Desktop/"+name+".xls");
+       	 file.getParentFile().mkdirs();
+       	 
+            FileOutputStream outFile = new FileOutputStream(file);
+            workbook.write(outFile);
+            System.out.println("Created file: " + file.getAbsolutePath());
+            locationOut = file.getAbsolutePath();
+        }
+        else
+        {
+       	 File file = new File(location);
+       	 file.getParentFile().mkdirs();
+       	 
+            FileOutputStream outFile = new FileOutputStream(file);
+            workbook.write(outFile);
+            System.out.println("Created file: " + file.getAbsolutePath());
+            locationOut = file.getAbsolutePath();
         }
         
         return locationOut;
@@ -247,33 +247,32 @@ public class ExporExel {
              //member email (G)
              
              cell = row.createCell(6, CellType.STRING);
-             cell.setCellValue(member.getEmail());
-           
-             if(location.equals(""))
-             {
-            	 String user = System.getProperty("user.home");
-            	 File file = new File( user+"/Desktop/MemberAll.xls");
-            	 file.getParentFile().mkdirs();
-            	 
-                 FileOutputStream outFile = new FileOutputStream(file);
-                 workbook.write(outFile);
-                 System.out.println("Created file: " + file.getAbsolutePath());
-                 locationOut = file.getAbsolutePath();
-             }
-             else
-             {
-            	 File file = new File(location);
-            	 file.getParentFile().mkdirs();
-            	 
-                 FileOutputStream outFile = new FileOutputStream(file);
-                 workbook.write(outFile);
-                 System.out.println("Created file: " + file.getAbsolutePath());
-                 locationOut = file.getAbsolutePath();
-             }
+             cell.setCellValue(member.getEmail());       
              
-             
+            
+                         
         }
-        
+        if(location.equals(""))
+        {
+       	 String user = System.getProperty("user.home");
+       	 File file = new File( user+"/Desktop/MemberAll.xls");
+       	 file.getParentFile().mkdirs();
+       	 
+            FileOutputStream outFile = new FileOutputStream(file);
+            workbook.write(outFile);
+            System.out.println("Created file: " + file.getAbsolutePath());
+            locationOut = file.getAbsolutePath();
+        }
+        else
+        {
+       	 File file = new File(location);
+       	 file.getParentFile().mkdirs();
+       	 
+            FileOutputStream outFile = new FileOutputStream(file);
+            workbook.write(outFile);
+            System.out.println("Created file: " + file.getAbsolutePath());
+            locationOut = file.getAbsolutePath();
+        }
         return locationOut;
 		
 
@@ -390,14 +389,57 @@ public class ExporExel {
             cell.setCellValue(group.getEmail());
             
             //School (K)
+            cell = row.createCell(9,CellType.STRING);
+            cell.setCellValue(group.getSchool());
             
             //Achievement (L)
+            cell = row.createCell(10,CellType.STRING);
+            String achive = group.getAchivement();
+            if(!achive.equals(""))
+            {
+            	cell.setCellValue(achive);
+            }
+            else
+            	cell.setCellValue("No achivement");
+            
+            
             //Description (M)
+            cell = row.createCell(11,CellType.STRING);
+            cell.setCellValue(group.getDescription());
             //Status (N)
+            cell = row.createCell(12,CellType.STRING);
+            Integer stt = group.getStatus();
+            if(stt == 0)
+            {
+            	cell.setCellValue("Chưa xem");
+            }
+            else
+            	cell.setCellValue("Đã xem");        
             
             
             
         }
-		return null;
+        if(location.equals(""))
+        {
+       	 String user = System.getProperty("user.home");
+       	 File file = new File( user+"/Desktop/GroupAll.xls");
+       	 file.getParentFile().mkdirs();
+       	 
+            FileOutputStream outFile = new FileOutputStream(file);
+            workbook.write(outFile);
+            System.out.println("Created file: " + file.getAbsolutePath());
+            locationOut = file.getAbsolutePath();
+        }
+        else
+        {
+       	 File file = new File(location);
+       	 file.getParentFile().mkdirs();
+       	 
+            FileOutputStream outFile = new FileOutputStream(file);
+            workbook.write(outFile);
+            System.out.println("Created file: " + file.getAbsolutePath());
+            locationOut = file.getAbsolutePath();
+        }
+		return locationOut;
 	}
 }

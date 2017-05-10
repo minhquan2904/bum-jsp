@@ -1,35 +1,9 @@
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ADMIN INTERFACE</title>
-
-<!-- Bootstrap -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link href="css/datepicker3.css" rel="stylesheet">
-<link href="css/styles.css" rel="stylesheet">
-<script src="js/lumino.glyphs.js"></script>
-<link href="css/bootstrap-table.css" rel="stylesheet">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body>
-	<jsp:include page="../admin_layout/_navbar.jsp"></jsp:include>
-
-
-	<jsp:include page="../admin_layout/_header-slidebar.jsp"></jsp:include>
+<jsp:include page="../admin_layout/_header.jsp"></jsp:include>
 
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
@@ -94,7 +68,8 @@
 							</tbody>
 						</table>
 						
-						<a class="btn btn-success" href="ExportExelAllMember.html">Lấy danh sách tất cả thành viên</a>
+						<a class="btn btn-success" href="ExportExelAllMember.html">Get All Member</a>
+						<a class="btn btn-primary" href="ExportAllGroup.html">Get All Group</a>
 					</div>
 				</div>
 			</div>
@@ -111,11 +86,11 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src="js/chart.min.js"></script>
-	<script src="js/chart-data.js"></script>
-	<script src="js/easypiechart.js"></script>
-	<script src="js/easypiechart-data.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/bootstrap-table.js"></script>
+	<script src="${pageContext.request.contextPath}/js/chart.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/chart-data.js"></script>
+	<script src="${pageContext.request.contextPath}/js/easypiechart.js"></script>
+	<script src="${pageContext.request.contextPath}/js/easypiechart-data.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrap-datepicker.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrap-table.js"></script>
 </body>
 </html>

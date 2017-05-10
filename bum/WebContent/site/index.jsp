@@ -143,7 +143,7 @@
                         </div>
                         <div class="col-sm-6 wow fadeInLeft" data-wow-duration="2s">
                             <div class="b-link-new wow fadeInLeft" data-wow-duration="2s">
-                                <a href="#"><img class="img-responsive" src="img/news-demo.jpg" alt="intro">
+                                <a href="#"><img class="img-responsive" src="http://tuoitre.hcmute.edu.vn/wp-content/uploads/2017/05/2.jpg" alt="intro">
                                     <p class="b-para-news"><span class="intro">Title của tin tức</span>
                                     </p>
                                 </a>

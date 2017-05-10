@@ -30,7 +30,7 @@
 					<use xlink:href="#stroked-mobile-device" /></svg> Quảng cáo &amp; giao
 				diện </a></li>
 		<li role="presentation" class="divider"></li>
-		<li><a href="login.html"><svg class="glyph stroked male-user">
+		<li><a href="mec/mecute.html"><svg class="glyph stroked male-user">
 					<use xlink:href="#stroked-male-user"></use></svg> ...</a></li>
 	</ul>
 

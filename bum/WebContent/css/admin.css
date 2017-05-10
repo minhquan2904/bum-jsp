@@ -715,3 +715,12 @@ header {
     cursor: inherit;
     display: block;
 }   
+.fail{
+	background-color: #F44336;
+	color:white;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	
+ 	 
+}

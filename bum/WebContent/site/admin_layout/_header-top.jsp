@@ -11,10 +11,10 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link href="css/datepicker3.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-      <link rel="stylesheet" href="css/admin.css">
-    <script src="js/lumino.glyphs.js"></script>
+    <link href="${pageContext.request.contextPath}/css/datepicker3.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
+    <script src="${pageContext.request.contextPath}/js/lumino.glyphs.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

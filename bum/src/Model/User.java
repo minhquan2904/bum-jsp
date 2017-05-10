@@ -12,12 +12,12 @@ public class User implements Serializable {
 	private Integer id;
 	private String username;
 	private String password;
-	private String role;
+	private Integer role;
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(Integer id, String username, String password, String role) {
+	public User(Integer id, String username, String password, Integer role) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -42,11 +42,14 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getRole() {
+	public Integer getRole() {
 		return role;
 	}
-	public void setRole(String role) {
+	public void setRole(Integer role) {
 		this.role = role;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 	 

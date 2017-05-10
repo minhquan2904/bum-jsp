@@ -16,7 +16,7 @@ import Model.Group_regist;
 /**
  * Servlet implementation class adminRegistController
  */
-@WebServlet("/adminRegist.html")
+@WebServlet("/mec/adminRegist.html")
 public class adminRegistController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
