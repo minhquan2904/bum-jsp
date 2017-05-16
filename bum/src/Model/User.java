@@ -13,17 +13,29 @@ public class User implements Serializable {
 	private String username;
 	private String password;
 	private Integer role;
+	private Integer status;
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(Integer id, String username, String password, Integer role) {
+	
+	public User(Integer id, String username, String password, Integer role, Integer status) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.role = role;
+		this.status = status;
 	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
 	public Integer getId() {
 		return id;
 	}

@@ -20,8 +20,8 @@
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#"><svg class="glyph stroked male-user">
 										<use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
-							<li><a href="#"><svg class="glyph stroked gear">
-										<use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
+							<li><a href="change-password.html"><svg class="glyph stroked gear">
+										<use xlink:href="#stroked-gear"></use></svg> ChangePassword</a></li>
 							<li><a href="logout.html"><span
 									class="glyphicon glyphicon-off"
 									style="padding-left: 5p; padding-right: 13px;"> </span> Logout</a></li>

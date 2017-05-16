@@ -53,7 +53,7 @@ input.form-control.input-lg {
 		});
 	</script>
 	<div class="b-regist">
-		<form role="form" action="regist.html" method="post" id="formRegist">
+		<form role="form" action="dangki" method="post" id="formRegist">
 			<h2>
 				ĐĂNG KÝ DỰ THI <small style="font-size: 0.5em">Cuộc thi sáng
 					tác phim ngắn dành cho sinh viên không chuyên điện ảnh lần 1 - 2017</small>

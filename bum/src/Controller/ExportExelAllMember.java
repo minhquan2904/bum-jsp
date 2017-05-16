@@ -17,7 +17,7 @@ import Tools.ExporExel;
 /**
  * Servlet implementation class ExportExelAllMember
  */
-@WebServlet("/admin-ExportExelAllMember.html")
+@WebServlet("/mec/admin-ExportExelAllMember.html")
 public class ExportExelAllMember extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -21,7 +21,7 @@ import Model.Member;
 /**
  * Servlet implementation class registController
  */
-@WebServlet("/regist.html")
+@WebServlet("/dangki")
 public class registController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

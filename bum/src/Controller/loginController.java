@@ -60,6 +60,7 @@ public class loginController extends HttpServlet {
 		}
 		String usn = request.getParameter("Username");
 		String pwd = request.getParameter("Password");
+		pwd = MD5.encryption(pwd);
 		UserDAO dao = new UserDAO();
 		User user = new User();
 		try {

@@ -18,7 +18,7 @@ import Tools.ExporExel;
 /**
  * Servlet implementation class ExportAllGroupController
  */
-@WebServlet("/ExportAllGroup.html")
+@WebServlet("/mec/ExportAllGroup.html")
 public class ExportAllGroupController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

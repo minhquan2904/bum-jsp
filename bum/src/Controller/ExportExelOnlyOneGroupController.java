@@ -18,7 +18,7 @@ import jdk.nashorn.internal.ir.RuntimeNode.Request;
 /**
  * Servlet implementation class ExportExelOnlyOneGroupController
  */
-@WebServlet("/admin-ExportExel.html")
+@WebServlet("/mec/admin-ExportExel.html")
 public class ExportExelOnlyOneGroupController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

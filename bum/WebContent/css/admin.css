@@ -2,7 +2,10 @@
 	margin-top: 80px;
 	margin-bottom: 20px;
 }
-
+.not-active {
+   pointer-events: none;
+   cursor: default;
+}
 .form-signin {
   max-width: 420px;
   padding: 30px 38px 66px;

@@ -16,7 +16,7 @@ import Model.Option;
 /**
  * Servlet implementation class adminOptionController
  */
-@WebServlet("/adminOption.html")
+@WebServlet("/mec/adminOption.html")
 public class adminOptionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
