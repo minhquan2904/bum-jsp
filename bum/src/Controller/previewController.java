@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class adminSubmissionController
+ * Servlet implementation class introController
  */
-@WebServlet("/mec/adminSubmission.html")
-public class adminSubmissionController extends HttpServlet {
+@WebServlet("/preview.html")
+public class previewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public adminSubmissionController() {
+    public previewController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,7 +26,7 @@ public class adminSubmissionController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/site/admin/admin-submission.jsp").forward(request, response);
+		request.getRequestDispatcher("/site/preview.jsp").forward(request, response);
 	}
 
 	/**

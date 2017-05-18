@@ -41,7 +41,12 @@ public class RegistDAO {
 		ps.setString(11, regist.getDescription());
 		ps.setInt(12, 0);
 
-		int group_id = ps.executeUpdate();
+		ps.executeUpdate();
+		int group_id;
+		ResultSet rs = ps.getGeneratedKeys();
+		rs.next();
+		group_id = rs.getInt(1);
+		System.out.println(group_id);
 		String group_name = regist.getName();
 
 		String sql2 = "INSERT INTO `member`(`name`, `birthday`, `phone`, `email`, `group_id`,`group_name`)"

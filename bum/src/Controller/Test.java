@@ -29,10 +29,7 @@ public class Test extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String url = "Tiêu đề của tin tức";
-		String newUrl = UnsignURL.ToUnsignString(url);
-		System.out.println(newUrl);
+		request.getRequestDispatcher("/site/temp.jsp").forward(request, response);
 	}
 
 	/**

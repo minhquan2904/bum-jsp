@@ -44,11 +44,13 @@
 				<h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
 				<c:if test="${not empty loginFail}"><p class='fail' id="signinresult"><c:out value="${loginFail}"></c:out></p></c:if>
 				<hr class="colorgraph">
-				<br> <input type="text" class="form-control" name="Username"
-					id="username" placeholder="Username" required="" autofocus="" /> 
+				<br> <input type="text" class="form-control required username" name="Username" data-placement="top" 
+				data-trigger="manual" data-content="Phải nhập đúng username"
+					id="username" placeholder="Username" autofocus="" /> 
 					<input
-					type="password" class="form-control" name="Password"
-					placeholder="Password" required="" />
+					type="password" class="form-control required password1" name="Password"
+					data-placement="right" data-trigger="manual" data-content="Phải nhập đúng pass"
+					placeholder="Password"  />
 
 				<button class="btn btn-lg btn-primary btn-block" name="Submit"
 					value="Login" type="Submit">Login</button>
@@ -61,6 +63,7 @@
 	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script type="text/javascript" src="js/admin.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>

@@ -14,10 +14,10 @@ public class DBConnect {
 		Connection conn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			//conn = DriverManager.getConnection(
-			//		"jdbc:mysql://localhost/bum?useSSL=false&useUnicode=yes&characterEncoding=UTF-8", dbuser, dbpass);
-			 conn=DriverManager.getConnection("jdbc:mysql://mysql43255-beyoumovie.jelastic.skali.net:3306/"+dbname+"?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8",
-					 user, pass);
+			conn = DriverManager.getConnection(
+					"jdbc:mysql://localhost/bum?useSSL=false&useUnicode=yes&characterEncoding=UTF-8", dbuser, dbpass);
+			 //conn=DriverManager.getConnection("jdbc:mysql://mysql43255-beyoumovie.jelastic.skali.net:3306/"+dbname+"?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8",
+			//		 user, pass);
 
 		} catch (Exception e) {
 			e.printStackTrace();

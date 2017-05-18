@@ -18,7 +18,7 @@ import Tools.ExporExel;
 /**
  * Servlet implementation class adminViewMemberController
  */
-@WebServlet("/adminViewMember.html")
+@WebServlet("/mec/adminViewMember.html")
 public class adminViewMemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

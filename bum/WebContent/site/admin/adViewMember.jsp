@@ -14,10 +14,10 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link href="css/datepicker3.css" rel="stylesheet">
-<link href="css/styles.css" rel="stylesheet">
-<script src="js/lumino.glyphs.js"></script>
-<link href="css/bootstrap-table.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/datepicker3.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/js/lumino.glyphs.js"></script>
+<link href="${pageContext.request.contextPath}/css/bootstrap-table.css" rel="stylesheet">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -97,11 +97,11 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src="js/chart.min.js"></script>
-	<script src="js/chart-data.js"></script>
-	<script src="js/easypiechart.js"></script>
-	<script src="js/easypiechart-data.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/bootstrap-table.js"></script>
+	<script src="${pageContext.request.contextPath}/js/chart.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/chart-data.js"></script>
+	<script src="${pageContext.request.contextPath}/js/easypiechart.js"></script>
+	<script src="${pageContext.request.contextPath}/js/easypiechart-data.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrap-datepicker.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrap-table.js"></script>
 </body>
 </html>

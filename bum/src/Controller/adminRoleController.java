@@ -15,7 +15,7 @@ import Model.Document;
 /**
  * Servlet implementation class adminRoleController
  */
-@WebServlet("/adminRoleController")
+@WebServlet("/mec/adminRoleController")
 public class adminRoleController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

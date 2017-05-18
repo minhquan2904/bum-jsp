@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class addsubmissionController
  */
-@WebServlet("/add-submission.html")
+@WebServlet("/mec/add-submission.html")
 public class addsubmissionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

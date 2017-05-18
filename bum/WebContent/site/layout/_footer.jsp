@@ -41,8 +41,8 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Customize -->
-<script src="js/customize.js"></script>
-<script type="text/javascript" src="js/wow.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/customize.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/wow.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

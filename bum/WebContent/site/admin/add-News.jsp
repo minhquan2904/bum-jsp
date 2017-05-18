@@ -9,18 +9,30 @@
 	content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/froala_editor.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/froala_style.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/plugins/code_view.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/plugins/colors.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/plugins/emoticons.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/plugins/image.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/plugins/line_breaker.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/plugins/table.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/plugins/char_counter.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/plugins/video.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/plugins/fullscreen.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/plugins/quick_insert.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/froala_editor.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/froala_style.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/plugins/code_view.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/plugins/colors.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/plugins/emoticons.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/plugins/image.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/plugins/line_breaker.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/plugins/table.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/plugins/char_counter.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/plugins/video.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/plugins/fullscreen.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/plugins/quick_insert.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
 <link rel="stylesheet" href="css/admin.css">
@@ -28,8 +40,10 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link href="${pageContext.request.contextPath}/css/datepicker3.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/datepicker3.css"
+	rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/styles.css"
+	rel="stylesheet">
 <script src="${pageContext.request.contextPath}/js/lumino.glyphs.js"></script>
 <!-- Bootstrap -->
 <link rel="stylesheet"
@@ -79,19 +93,23 @@
 			<h1>
 				<center>Đăng bài viết</center>
 			</h1>
-			<form action="addNewsController" method="post"
+			<form id="form" action="addNewsController" method="post"
 				accept-charset="utf-8">
 				<div class="form-group">
 					<label class="col-md-2">Tiêu đề</label> <input type="text"
-						class="form-control" name="title" id="email">
+						class="form-control" name="title" id="title">
 				</div>
-				<label class="col-md-2">Chọn loại bài đăng</label>
-				<label class="radio-inline"><input type="radio" name="optradio" value="1">Tin tức</label>
-				<label class="radio-inline"><input type="radio" name="optradio" checked="checked" value="2">Bài viết</label>
-				<input id="cate" type="hidden" name="category" value="2"/>
+				<label class="col-md-2">Chọn loại bài đăng</label> <label
+					class="radio-inline"><input type="radio" name="optradio"
+					value="1">Tin tức</label> <label class="radio-inline"><input
+					type="radio" name="optradio" checked="checked" value="2">Bài
+					viết</label> <input id="cate" type="hidden" name="category" value="2" /> <input
+					id="status" type="hidden" name="status" value="1" />
 				<textarea name="content" id="myEditor"></textarea>
-				<button style="margin: 10px" type="submit" class="btn btn-success">Lưu
-					thay đổi</button>
+				<button id="pre" style="margin: 10px" type="button"
+					class="btn btn-primary">Xem trước</button>
+				<button id="save" style="margin: 10px" type="submit"
+					class="btn btn-success">Lưu thay đổi</button>
 			</form>
 		</div>
 
@@ -104,37 +122,83 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/froala_editor.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/align.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/char_counter.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/code_beautifier.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/code_view.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/colors.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/emoticons.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/entities.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/font_size.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/font_family.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/fullscreen.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/image.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/line_breaker.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/inline_style.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/link.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/lists.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/paragraph_format.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/paragraph_style.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/quick_insert.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/quote.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/table.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/save.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/url.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/video.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/languages/vi.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/froala_editor.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/align.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/char_counter.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/code_beautifier.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/code_view.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/colors.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/emoticons.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/entities.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/font_size.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/font_family.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/fullscreen.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/image.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/line_breaker.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/inline_style.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/link.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/lists.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/paragraph_format.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/paragraph_style.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/quick_insert.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/quote.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/table.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/save.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/url.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/plugins/video.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/languages/vi.js"></script>
 <script>
-	$(document).ready(function(){
-		 $('input[name=optradio]').on("click",function(){
+	$(document).ready(function() {
+
+		$('#pre').on("click", function() {
+
+			var content = $('#myEditor').val();
+			var title = $('#title').val();
+			var cate = $('#cate').val();
+			if (cate == 2)
+				cate = "Bài viết";
+			else
+				cate = "Tin tức";
+			//neu ton tai se xoa data truyen di
+			localStorage.clear();
+			localStorage.setItem("content", content);
+			localStorage.setItem("title", title);
+			localStorage.setItem("cate", cate);
+			//change status
+			$('#status').val('0');
+			var x = $('#status').val();
+			window.open('preview.html', "_blank");
+			// $('#form')[0].submit(); 
+		});
+		$('input[name=optradio]').on("click", function() {
 			$("#cate").val($(this).val());
-		 });
-	
+		});
+
 	});
 	$(function() {
 		$('#myEditor').froalaEditor({

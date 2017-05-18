@@ -15,7 +15,7 @@ import Model.Document;
 /**
  * Servlet implementation class adminNewsController
  */
-@WebServlet("/admin-News.html")
+@WebServlet("/mec/admin-News.html")
 public class adminNewsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

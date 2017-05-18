@@ -124,6 +124,7 @@ public class registController extends HttpServlet {
 			
 			RegistDAO dao = new RegistDAO();
 			dao.insertRegist(regist, list);
+			resp.sendRedirect("completeRegist.html");
 			
 		} catch (ParseException | SQLException e) {
 			// TODO Auto-generated catch block

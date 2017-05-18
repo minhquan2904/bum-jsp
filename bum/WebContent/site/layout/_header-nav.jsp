@@ -22,7 +22,7 @@
                                 <li class="b-li flex-box-center"><a href="submission.html">BÀI DỰ THI</a></li>
                                 <li class="b-li flex-box-center"><a href="thele.html">THỂ LỆ</a></li>
                                 <li class="b-li flex-box-center"><a href="gioithieu.html">GIỚI THIỆU</a></li>
-                                <li class="b-li flex-box-center"><a href="dangki.html">ĐĂNG KÍ</a></li>
+                                <li class="b-li flex-box-center"><a href="dangki">ĐĂNG KÍ</a></li>
                             </ul>
                         </div>
                     </div>
